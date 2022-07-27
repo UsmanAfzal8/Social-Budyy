@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "605140764667",
+    "project_id": "socialbudyy",
+    "storage_bucket": "socialbudyy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605140764667:android:d096e8e914c5986c34ad5e",
+        "android_client_info": {
+          "package_name": "com.example.socialbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605140764667-1vnree2s0e100h9qinabq184u857ncuf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIbdQYbCcm3AmpaC5kbAnRhNXhK5QVyXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605140764667-1vnree2s0e100h9qinabq184u857ncuf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
