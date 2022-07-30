@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:socialbuddy/loginsignup/login.dart';
 import 'package:socialbuddy/resources/Auth_method.dart';
 import 'package:socialbuddy/utils/imagepicker.dart';
 import 'package:socialbuddy/widgets/textfield.dart';
@@ -48,6 +49,16 @@ class _SignupPageState extends State<SignupPage> {
     // if (res != 'success') {
     //   showSnackBar(context, res);
     // } else {}
+    if (res == "Success") {
+      //Navigator.pushNamed(context, '/Loginscreen');
+      // Navigator.pushReplacement(context, MaterialPageRoute (BuildContext context) => const LoginUi(),);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => const LoginUi(),
+        ),
+      );
+    }
     print(res);
   }
 
@@ -204,12 +215,17 @@ class _SignupPageState extends State<SignupPage> {
                         color: Colors.black,
                       ),
                     ),
-                    Text(
-                      'Login',
-                      style: GoogleFonts.roboto(
-                        fontSize: 15,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Loginscreen');
+                      },
+                      child: Text(
+                        'Login',
+                        style: GoogleFonts.roboto(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:socialbuddy/dimensions/mobilescreen.dart';
 import 'package:socialbuddy/dimensions/responceui.dart';
 import 'package:socialbuddy/dimensions/webscreen.dart';
+import 'package:socialbuddy/loginsignup/userstate.dart';
 import 'package:socialbuddy/pages/frontpage.dart';
 
 import 'loginsignup/login.dart';
@@ -40,7 +41,13 @@ class MyApp extends StatelessWidget {
       ),
       // home: ResponsiveUi(
       //     mobileScreeenlayout: MobileScreen(), webScreeenlayout: WebScreen()),
-      home: LoginUi(),
+      //home: Userstate(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Userstate(),
+        '/Loginscreen': (context) => LoginUi(),
+        '/Signupscreen': (context) => SignupPage(),
+      },
     );
   }
 }

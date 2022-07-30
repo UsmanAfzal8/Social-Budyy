@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:socialbuddy/Model/users.dart';
 import 'package:socialbuddy/resources/storagemethod.dart';
 
 class AuthMethods {
@@ -26,15 +27,18 @@ class AuthMethods {
         print(cer.user!.uid);
         String profileimage =
             await Storagemethod().uploadtostorage('profile', file, false);
-        await _firestore.collection('users').doc(cer.user!.uid).set({
-          'username': username,
-          'uid': cer.user!.uid,
-          'email': email..toLowerCase().trim(),
-          'bio': bio,
-          'followers': [],
-          'following': [],
-          'profilePicture': profileimage,
-        });
+
+        USers user = USers(
+            username: username,
+            uid: cer.user!.uid,
+            bio: bio,
+            email: email,
+            photourl: profileimage,
+            followers: [],
+            following: []);
+        await _firestore.collection('users').doc(cer.user!.uid).set(
+              user.toJson(),
+            );
         res = 'Success';
       }
     } on FirebaseAuthException catch (e) {

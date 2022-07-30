@@ -41,95 +41,101 @@ class _LoginUiState extends State<LoginUi> {
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.only(top: 32, right: 8, left: 8, bottom: 16),
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              //logo
-              Logo(),
-              SizedBox(
-                height: 25,
-              ),
-              Text(
-                'Login',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 35,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                //logo
+                Logo(),
+                SizedBox(
+                  height: 25,
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              //Email
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Textfieldpage(
-                  hinttext: 'Enter Email Address',
-                  textcontroller: _emailcontroller,
-                  texttype: TextInputType.emailAddress,
-                  labeltext: 'Email',
+                Text(
+                  'Login',
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Textfieldpage(
-                  hinttext: 'Enter Password',
-                  textcontroller: _passwordcontroller,
-                  texttype: TextInputType.text,
-                  labeltext: 'Password',
-                  pass: true,
+                SizedBox(
+                  height: 25,
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              //Password
-              _isloading
-                  ? CircularProgressIndicator()
-                  : ElevatedButton(
-                      onPressed: signinh,
-                      child: Text(
-                        'Login',
-                        style: GoogleFonts.bebasNeue(
-                          fontSize: 25,
-                          color: Colors.white,
+                //Email
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Textfieldpage(
+                    hinttext: 'Enter Email Address',
+                    textcontroller: _emailcontroller,
+                    texttype: TextInputType.emailAddress,
+                    labeltext: 'Email',
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Textfieldpage(
+                    hinttext: 'Enter Password',
+                    textcontroller: _passwordcontroller,
+                    texttype: TextInputType.text,
+                    labeltext: 'Password',
+                    pass: true,
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                //Password
+                _isloading
+                    ? CircularProgressIndicator()
+                    : ElevatedButton(
+                        onPressed: signinh,
+                        child: Text(
+                          'Login',
+                          style: GoogleFonts.bebasNeue(
+                            fontSize: 25,
+                            color: Colors.white,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 224, 113, 38),
                         ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 224, 113, 38),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Don\'t have any account ?',
+                      style: GoogleFonts.roboto(
+                        fontSize: 15,
+                        color: Colors.black,
                       ),
                     ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Don\'t have any account ?',
-                    style: GoogleFonts.roboto(
-                      fontSize: 15,
-                      color: Colors.black,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Signupscreen');
+                      },
+                      child: Text(
+                        'Signup',
+                        style: GoogleFonts.roboto(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Signup',
-                    style: GoogleFonts.roboto(
-                      fontSize: 15,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              //Button
-            ],
+                  ],
+                ),
+                //Button
+              ],
+            ),
           ),
         ),
       )),
